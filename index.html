@@ -6,745 +6,956 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rifat Rahman — Full-Stack Engineer (Strong in Backend)</title>
   <meta name="description"
-    content="Full-Stack Engineer strong in backend. NestJS, Node.js, TypeScript, Microservices & System Design. Building scalable systems with real-world impact." />
-  <meta name="author" content="Rifat Rahman" />
-
-  <!-- Open Graph -->
+    content="Full-Stack Engineer strong in backend. NestJS, Node.js, TypeScript, Microservices & System Design." />
   <meta property="og:title" content="Rifat Rahman — Full-Stack Engineer (Strong in Backend)" />
   <meta property="og:description"
-    content="Full-stack engineer with a strong backend core. NestJS • Node.js • TypeScript • Microservices. Regularly uses AI in daily workflow." />
+    content="Full-stack engineer with a strong backend core. NestJS • Node.js • TypeScript • Microservices." />
 
-
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&family=Mrs+Saint+Delafield&display=swap"
     rel="stylesheet" />
+  <!-- Devicon for tech logos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Montserrat', 'system-ui', 'sans-serif'],
+            sans: ['Poppins', 'system-ui', 'sans-serif'],
+            script: ['"Mrs Saint Delafield"', 'cursive'],
           },
           colors: {
-            brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              200: '#bae6fd',
-              300: '#7dd3fc',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-              800: '#075985',
-              900: '#0c4a6e',
-            }
-          }
-        }
-      }
-    }
+            ink: '#030816',
+            accent: '#2f8cff',
+            accent2: '#4aa8ff',
+          },
+        },
+      },
+    };
   </script>
-
   <style>
+    :root {
+      --accent: #2f8cff;
+      --accent-2: #4aa8ff;
+    }
+
     body {
-      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .card-hover {
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -12px rgba(14, 165, 233, 0.15);
-    }
-
-    .skill-badge {
-      transition: all 0.2s ease;
-    }
-
-    .skill-badge:hover {
-      transform: scale(1.05);
-      background: rgba(14, 165, 233, 0.15);
-      border-color: rgba(14, 165, 233, 0.4);
-    }
-
-    /* Subtle grid background */
-    .bg-grid {
+      background: #030816;
+      color: #e6edf8;
+      font-family: 'Poppins', system-ui, sans-serif;
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 64px 64px;
+        radial-gradient(900px 500px at 85% -5%, rgba(47, 140, 255, .16), transparent 60%),
+        radial-gradient(700px 500px at -10% 30%, rgba(47, 140, 255, .07), transparent 60%);
+      background-attachment: fixed;
+    }
+
+    .font-display {
+      font-family: 'Montserrat', system-ui, sans-serif;
+    }
+
+    /* Rounded poster panels */
+    .panel {
+      border: 1px solid rgba(59, 130, 246, .2);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(13, 27, 54, .72), rgba(6, 14, 32, .88));
+      box-shadow: inset 0 1px 0 rgba(120, 180, 255, .06);
+    }
+
+    /* Section titles: "WHAT I DO —" with the last word in blue */
+    .sec-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .sec-title b {
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .sec-title::after {
+      content: "";
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: .85;
+    }
+
+    /* Hero name */
+    .hero-name {
+      background: linear-gradient(180deg, #62b6ff 0%, #2a7bff 52%, #1556e6 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 22px rgba(47, 140, 255, .25));
+    }
+
+    /* Hero visual clip (diagonal glowing edge) */
+    .hero-clip {
+      clip-path: polygon(36% 0, 100% 0, 100% 100%, 9% 100%, 0 76%);
+    }
+
+    .hero-glow {
+      filter: drop-shadow(0 0 14px rgba(47, 140, 255, .55));
+    }
+
+    /* Skills */
+    .bar-track {
+      height: 6px;
+      border-radius: 999px;
+      background: #14223f;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #1d6bff, #3aa6ff);
+      box-shadow: 0 0 10px rgba(47, 140, 255, .5);
+    }
+
+    /* Line icons */
+    .ico {
+      width: 44px;
+      height: 44px;
+      stroke: #3b9bff;
+      fill: none;
+      stroke-width: 1.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* Tech logos */
+    .tech-icon {
+      font-size: 2.7rem;
+      line-height: 1;
+    }
+
+    /* Fact cards */
+    .fact {
+      border: 1px solid rgba(59, 130, 246, .35);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(14, 30, 60, .55), rgba(6, 14, 32, .6));
+      transition: all .25s ease;
+    }
+
+    .fact:hover {
+      border-color: rgba(74, 168, 255, .7);
+      box-shadow: 0 0 28px -8px rgba(47, 140, 255, .5);
+    }
+
+    .card-glow {
+      transition: all .25s ease;
+    }
+
+    .card-glow:hover {
+      border-color: rgba(74, 168, 255, .55);
+      box-shadow: 0 0 30px -8px rgba(47, 140, 255, .4);
+      transform: translateY(-3px);
+    }
+
+    .quote-mark {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 4rem;
+      line-height: .8;
+    }
+
+    .hl {
+      color: var(--accent-2);
     }
   </style>
 </head>
 
-<body class="bg-slate-950 text-slate-200 antialiased">
+<body class="antialiased">
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 inset-x-0 z-50 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-xl">
-    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="font-semibold text-white tracking-tight">Rifat Rahman</a>
-      <div class="hidden sm:flex items-center gap-8 text-sm font-medium text-slate-400">
-        <a href="#about" class="hover:text-white transition">About</a>
-        <a href="#skills" class="hover:text-white transition">Skills</a>
-        <a href="#experience" class="hover:text-white transition">Experience</a>
-        <a href="#projects" class="hover:text-white transition">Projects</a>
-        <a href="#contact" class="hover:text-white transition">Contact</a>
-      </div>
-      <a href="https://github.com/NC-Rifat-Rahman" target="_blank" rel="noopener"
-        class="text-sm font-medium px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white transition">
-        GitHub →
-      </a>
-    </div>
-  </nav>
+  <!-- Shared monogram symbol (two overlapping R's) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="mono" viewBox="0 0 64 48">
+        <path d="M8 41V7h15a10.5 10.5 0 010 21H8m14 0l11 13" fill="none" stroke="#fff" stroke-width="7"
+          stroke-linejoin="round" stroke-linecap="round" />
+        <path d="M27 41V7h15a10.5 10.5 0 010 21H27m14 0l11 13" fill="none" stroke="#2f8cff" stroke-width="7"
+          stroke-linejoin="round" stroke-linecap="round" />
+      </symbol>
+    </defs>
+  </svg>
 
-  <!-- Hero -->
-  <header class="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden">
-    <div class="absolute inset-0 bg-grid opacity-40"></div>
-    <div
-      class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none">
-    </div>
+  <div class="max-w-[1120px] mx-auto px-4 sm:px-6">
 
-    <div class="relative max-w-5xl mx-auto px-6">
-      <div
-        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-sm font-medium mb-6">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Open to opportunities
-      </div>
+    <!-- ========== HERO ========== -->
+    <header class="relative overflow-hidden">
+      <!-- faint code texture -->
+      <pre aria-hidden="true"
+        class="absolute left-0 top-0 text-[11px] leading-5 text-blue-300/[0.06] font-mono select-none pointer-events-none hidden md:block"
+        style="-webkit-mask-image:linear-gradient(135deg,#000,transparent 55%);mask-image:linear-gradient(135deg,#000,transparent 55%)">import { Module } from '@nestjs/common';
+@Module({
+  imports: [TypeOrmModule.forFeature([Order])],
+  controllers: [OrderController],
+  providers: [OrderService, OrderRepository],
+})
+export class OrderModule {}
+const queue = await rabbit.createChannel();
+await queue.assertQueue('orders.created');
+async handle(cmd: CreateOrderCommand) {
+  return this.bus.execute(cmd);
+}</pre>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
-        Full-Stack Engineer<br>
-        <span class="gradient-text">strong in backend</span>
-      </h1>
-
-      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed">
-        Full-stack engineer with a strong backend core. I primarily build with
-        <strong class="text-slate-200">NestJS</strong>, <strong class="text-slate-200">Node.js</strong>, and
-        <strong class="text-slate-200">TypeScript</strong>, and can own the frontend when needed.
-        Regularly use AI tools to ship faster and write better code.
-        Competitive programmer turned engineer focused on real-world impact.
-      </p>
-
-
-
-      <div class="flex flex-wrap gap-4">
-        <a href="#projects"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition shadow-lg shadow-brand-600/25">
-          View Projects
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      <!-- Top bar -->
+      <nav class="relative z-10 flex items-center justify-between py-6">
+        <div class="flex items-center gap-3">
+          <svg viewBox="0 0 64 48" class="w-12 h-9">
+            <use href="#mono" />
           </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/nc-rifat-rahman/" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold border border-slate-700 transition">
-          LinkedIn
-        </a>
-        <a href="https://github.com/NC-Rifat-Rahman" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold border border-slate-700 transition">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd"
-              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-              clip-rule="evenodd" />
+          <div class="font-display font-semibold leading-tight">
+            <div class="text-white text-[15px] tracking-wide">SOFTWARE ENGINEER</div>
+            <div class="text-accent2 text-[15px] tracking-wide">RIFAT</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <svg class="w-9 h-9" viewBox="0 0 48 48" fill="none" stroke="#3b9bff" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M16 14L5 24l11 10M32 14l11 10-11 10M27 9L21 39" />
           </svg>
-          GitHub
-        </a>
-      </div>
+          <div class="hidden sm:block font-display font-medium text-[13px] tracking-wide leading-tight text-white">
+            I BUILD SOLUTIONS<br>THAT <span class="text-accent2">INSPIRE.</span>
+          </div>
+        </div>
+      </nav>
 
-      <!-- Quick stats -->
-      <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-slate-800/80 pt-10">
-        <div>
-          <div class="text-2xl font-bold text-white">3.5+</div>
-          <div class="text-sm text-slate-500 mt-1">Years Experience</div>
-
-        </div>
-        <div>
-          <div class="text-2xl font-bold text-white">NestJS</div>
-          <div class="text-sm text-slate-500 mt-1">Primary Stack</div>
-        </div>
-        <div>
-          <div class="text-2xl font-bold text-white">Microservices</div>
-          <div class="text-sm text-slate-500 mt-1">Architecture Focus</div>
-        </div>
-        <div>
-          <div class="text-2xl font-bold text-white">CP</div>
-          <div class="text-sm text-slate-500 mt-1">Competitive Programming</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section id="about" class="py-24 border-t border-slate-800/60">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid lg:grid-cols-5 gap-12 items-start">
-        <div class="lg:col-span-2">
-          <h2 class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-3">About</h2>
-          <h3 class="text-3xl font-bold text-white leading-tight">
-            Problem solver first.<br>Engineer second.
-          </h3>
-        </div>
-        <div class="lg:col-span-3 space-y-5 text-slate-400 leading-relaxed">
-          <p>
-            I'm a full-stack engineer with a strong backend core, based in Bangladesh.
-            Professionally I work primarily with <strong class="text-slate-200">NestJS</strong>,
-            <strong class="text-slate-200">Node.js</strong>, and <strong class="text-slate-200">TypeScript</strong>.
-            On side projects I've also used <strong class="text-slate-200">C#</strong> and <strong
-              class="text-slate-200">Python</strong>.
+      <!-- Hero content -->
+      <div class="relative z-10 grid lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-4 items-center pb-12 pt-4 lg:pt-8">
+        <div class="lg:pr-4">
+          <h1 class="font-display font-extrabold leading-[.88] tracking-tight">
+            <span class="block text-white text-[clamp(2.5rem,7.4vw,4.9rem)]">SOFTWARE</span>
+            <span class="block text-white text-[clamp(2.5rem,7.4vw,4.9rem)]">ENGINEER</span>
+            <span class="block hero-name text-[clamp(3.8rem,12vw,8rem)] pb-2">RIFAT</span>
+          </h1>
+          <p class="font-display font-semibold text-[13px] sm:text-[15px] tracking-[.14em] mt-6 mb-5">
+            <span class="text-white">I</span> <span class="text-accent2">DESIGN.</span>
+            <span class="text-white">I</span> <span class="text-accent2">CODE.</span>
+            <span class="text-white">I</span> <span class="text-accent2">CREATE.</span>
+            <span class="text-slate-500">—</span>
           </p>
-
-          <p>
-            My approach is shaped by competitive programming and system design — I care about correctness,
-            performance, and clean architecture. I regularly incorporate AI tools into my daily workflow
-            to move faster and write better code while still owning the final quality of the system.
+          <p class="text-slate-300 text-[15px] leading-relaxed max-w-[26rem] mb-8">
+            I am a passionate Full-Stack Engineer with a strong backend core, building modern, scalable and
+            high-performance systems with NestJS, Node.js &amp; TypeScript — and owning the frontend when needed.
           </p>
-          <p>
-            Outside of work I build projects that solve real local problems. My latest focus is
-            <strong class="text-slate-200">RuralGig</strong> — an AI-powered micro-freelance platform designed
-            specifically for skilled workers in rural Bangladesh, featuring event-driven microservices,
-            CQRS, Saga patterns, and direct bKash payouts.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="py-24 border-t border-slate-800/60 bg-slate-900/30">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-3">Skills</h2>
-      <h3 class="text-3xl font-bold text-white mb-12">What I work with</h3>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Backend -->
-        <div>
-          <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
-            Backend & Runtime
-          </h4>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">NestJS</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Node.js</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">TypeScript</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Express</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Python</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">C#</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Django</span>
-          </div>
-        </div>
-
-
-        <!-- Architecture -->
-        <div>
-          <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>
-            Architecture & Patterns
-          </h4>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Microservices</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">CQRS</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Saga
-              Pattern</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Event-Driven</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Domain
-              Events</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">REST
-              APIs</span>
-          </div>
-        </div>
-
-        <!-- Data & Messaging -->
-        <div>
-          <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            Data & Messaging
-          </h4>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">PostgreSQL</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">MySQL</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">MongoDB</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Redis</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">RabbitMQ</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Prisma</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">TypeORM</span>
-          </div>
-        </div>
-
-
-        <!-- DevOps -->
-        <div>
-          <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-            DevOps & Tooling
-          </h4>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Docker</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Git</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Turborepo</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Nginx</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Linux</span>
-          </div>
-        </div>
-
-        <!-- CS Fundamentals -->
-        <div>
-          <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
-            CS Fundamentals
-          </h4>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Data
-              Structures</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Algorithms</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">System
-              Design</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Competitive
-              Programming</span>
-          </div>
-        </div>
-
-        <!-- Other -->
-        <div>
-          <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-            Also Comfortable With
-          </h4>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">Next.js</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">JavaScript</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">HTML/CSS</span>
-            <span
-              class="skill-badge px-3 py-1.5 text-sm rounded-lg bg-slate-800/80 border border-slate-700/80 text-slate-300">JWT
-              / Auth</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" class="py-24 border-t border-slate-800/60">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-3">Experience</h2>
-      <h3 class="text-3xl font-bold text-white mb-12">Where I've worked</h3>
-
-      <div class="space-y-12">
-
-        <!-- Four H -->
-        <article class="relative pl-8 border-l-2 border-slate-800">
-          <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-brand-500 border-4 border-slate-950"></div>
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-            <h4 class="text-xl font-semibold text-white">Executive Software Engineer</h4>
-            <span class="text-sm font-mono text-slate-500">Nov 2025 – Present</span>
-          </div>
-          <p class="text-brand-400 font-medium mb-3">Four H · Askarabad, Bangladesh</p>
-          <ul class="space-y-2 text-slate-400 text-[15px] leading-relaxed">
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Built ERP backend modules in NestJS, TypeScript, TypeORM, and MySQL (React front end), with global
-                search, exact and partial matching, and dynamic sorting across orders, buyers, items, and
-                categories.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Migrated 5M+ Excel records to MySQL and designed the schema for fast lookups.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Built bulk Excel import/export with automated validation, related-record creation, and server-side
-                image processing; automated CM calculation from CPM, SMV, order date, and efficiency.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Wrote Jest unit tests and technical documentation for delivered modules.</span>
-            </li>
-          </ul>
-        </article>
-
-        <!-- BizReflex -->
-        <article class="relative pl-8 border-l-2 border-slate-800">
-          <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-            <h4 class="text-xl font-semibold text-white">Software Engineer</h4>
-            <span class="text-sm font-mono text-slate-500">Nov 2024 – Oct 2025</span>
-          </div>
-          <p class="text-brand-400 font-medium mb-3">BizReflex · Baridhara DOHS, Bangladesh</p>
-          <ul class="space-y-2 text-slate-400 text-[15px] leading-relaxed">
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Built the authentication and authorization system (NestJS, PostgreSQL, Angular), improving login
-                reliability.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Optimized complex Order module queries, cutting query time by 25% on high-volume
-                transactions.</span>
-            </li>
-          </ul>
-        </article>
-
-        <!-- ShareTrip -->
-        <article class="relative pl-8 border-l-2 border-slate-800">
-          <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-            <h4 class="text-xl font-semibold text-white">Software Engineer</h4>
-            <span class="text-sm font-mono text-slate-500">Aug 2023 – Oct 2024</span>
-          </div>
-          <p class="text-brand-400 font-medium mb-3">ShareTrip · Bashundhara, Bangladesh</p>
-          <ul class="space-y-2 text-slate-400 text-[15px] leading-relaxed">
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Led development of hotel microservices in TypeScript, NestJS, MySQL, MongoDB, and RabbitMQ, handling
-                500K+ API requests per day.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Built a Data Aggregator microservice (Factory Method pattern) that unified supplier data streams,
-                boosting international hotel revenue by 80% and API throughput by 30% with caching and load
-                balancing.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Architected the ST-ROOMS backend, driving 200% growth in domestic hotel sales and improving
-                performance, with latency down 60% (6s to 2.5s) through query optimization and asynchronous
-                processing.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Developed the Hotel Private microservice with a three-step booking flow for lifecycle tracking and
-                cross-service debugging; implemented a cron job that clears expired bookings.</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Deployed to AWS with the cloud team, used Grafana to monitor production logs, and wrote Jest tests
-                alongside code reviews and Scrum.</span>
-            </li>
-          </ul>
-        </article>
-
-        <!-- ProInfoSysBD Intern -->
-        <article class="relative pl-8 border-l-2 border-slate-800">
-          <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
-            <h4 class="text-xl font-semibold text-white">Backend Developer Intern</h4>
-            <span class="text-sm font-mono text-slate-500">Jun 2022 – Sep 2022</span>
-          </div>
-          <p class="text-brand-400 font-medium mb-3">ProInfoSysBD · Gulshan, Bangladesh</p>
-          <ul class="space-y-2 text-slate-400 text-[15px] leading-relaxed">
-            <li class="flex gap-2">
-              <span class="text-slate-600 mt-1.5">•</span>
-              <span>Built Java, Spring Boot, and MySQL backend features and JWT-based security for an internal HRM
-                app.</span>
-            </li>
-          </ul>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Projects -->
-  <section id="projects" class="py-24 border-t border-slate-800/60 bg-slate-900/30">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-3">Projects</h2>
-      <h3 class="text-3xl font-bold text-white mb-4">Selected work</h3>
-      <p class="text-slate-400 mb-12 max-w-2xl">
-        I focus on projects that combine solid engineering with real-world usefulness —
-        both personal systems and client work in complex business domains.
-      </p>
-
-
-      <!-- Featured: RuralGig -->
-      <article class="card-hover mb-8 rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden">
-        <div class="p-8 sm:p-10">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
-            <span
-              class="px-2.5 py-1 text-xs font-semibold rounded-md bg-brand-500/15 text-brand-300 border border-brand-500/25">Featured</span>
-            <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-400">In Progress</span>
-          </div>
-
-          <h4 class="text-2xl sm:text-3xl font-bold text-white mb-3">RuralGig</h4>
-          <p class="text-slate-400 text-lg mb-6 max-w-3xl leading-relaxed">
-            AI-powered micro-freelance platform connecting skilled workers in rural Bangladesh with businesses.
-            Phone-first onboarding, Bangla support, and instant bKash payouts — built as a proper event-driven
-            microservices system.
-          </p>
-
-          <div class="grid sm:grid-cols-2 gap-6 mb-8">
-            <div>
-              <h5 class="text-sm font-semibold text-slate-300 mb-2">Architecture Highlights</h5>
-              <ul class="space-y-1.5 text-sm text-slate-400">
-                <li>• NestJS microservices monorepo (Turborepo)</li>
-                <li>• CQRS + Saga pattern for payments</li>
-                <li>• RabbitMQ domain events between services</li>
-                <li>• Schema-per-service with PostgreSQL</li>
-                <li>• Redis for caching, locks & rate limiting</li>
-              </ul>
-            </div>
-            <div>
-              <h5 class="text-sm font-semibold text-slate-300 mb-2">Interesting Implementation Details</h5>
-              <ul class="space-y-1.5 text-sm text-slate-400">
-                <li>• Trie for skill autocomplete</li>
-                <li>• Weighted bipartite matching for task assignment</li>
-                <li>• Claude API for task enhancement & skill extraction</li>
-                <li>• Design patterns catalogue + Architecture Decision Records</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-2 mb-8">
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">NestJS</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">TypeScript</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">PostgreSQL</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">RabbitMQ</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">Redis</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">Next.js</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">Turborepo</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">Claude
-              API</span>
-          </div>
-
-          <a href="https://github.com/NC-Rifat-Rahman/Ruralgig" target="_blank" rel="noopener"
-            class="inline-flex items-center gap-2 text-brand-400 hover:text-brand-300 font-medium transition">
-            View on GitHub
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+          <a href="#contact"
+            class="inline-flex items-center gap-3 pl-6 pr-3 py-2.5 rounded-full border border-accent/70 bg-accent/5 text-accent2 hover:bg-accent hover:text-white font-display font-semibold text-[12px] tracking-wide transition-all duration-300 shadow-[0_0_24px_-6px_rgba(47,140,255,.5)]">
+            LET'S BUILD SOMETHING AMAZING
+            <span class="w-7 h-7 rounded-full border border-current grid place-items-center">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </a>
         </div>
-      </article>
 
-      <!-- Client Project: AeroMarine -->
-      <article class="card-hover mb-10 rounded-2xl border border-slate-800 bg-slate-900/50 overflow-hidden">
-        <div class="p-8 sm:p-10">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
-            <span
-              class="px-2.5 py-1 text-xs font-semibold rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">Client
-              Project</span>
-            <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-400">Under
-              Construction</span>
-          </div>
+        <!-- Hero visual -->
+        <div class="hero-glow relative h-[400px] sm:h-[480px] lg:h-[560px]">
+          <div class="hero-clip absolute inset-0 bg-accent">
+            <div class="hero-clip absolute inset-[2px] bg-ink overflow-hidden">
+              <!-- Drop a photo named hero.jpg next to this file to replace the illustration -->
+              <svg viewBox="0 0 520 620" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full"
+                aria-hidden="true">
+                <defs>
+                  <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#081633" />
+                    <stop offset="1" stop-color="#030816" />
+                  </linearGradient>
+                  <radialGradient id="glowG" cx=".35" cy=".42" r=".6">
+                    <stop offset="0" stop-color="#2f8cff" stop-opacity=".38" />
+                    <stop offset="1" stop-color="#2f8cff" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="rim" x1="0" x2="1">
+                    <stop offset="0" stop-color="#4aa8ff" />
+                    <stop offset="1" stop-color="#4aa8ff" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="screenG" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#0e2650" />
+                    <stop offset="1" stop-color="#07152e" />
+                  </linearGradient>
+                  <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="16" />
+                  </filter>
+                  <filter id="neon" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur stdDeviation="4" result="b" />
+                    <feMerge>
+                      <feMergeNode in="b" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <rect width="520" height="620" fill="url(#bgG)" />
+                <rect width="520" height="620" fill="url(#glowG)" />
 
-          <h4 class="text-2xl sm:text-3xl font-bold text-white mb-3">AeroMarine</h4>
-          <p class="text-slate-400 text-lg mb-2 max-w-3xl leading-relaxed">
-            Operations & Billing platform for port logistics and shipping companies in Bangladesh.
-          </p>
-          <p class="text-slate-500 text-sm mb-6">
-            Built for <strong class="text-slate-400">Fleet International Limited</strong> (Vessel Agency & Stevedoring)
-            and
-            <strong class="text-slate-400">MA Shipping Lines</strong> (Lighter Fleet Operations).
-          </p>
+                <!-- chair back -->
+                <path d="M418 246 C468 232 520 252 520 252 L520 620 L392 620 C404 500 404 360 418 246Z" fill="#060d20"
+                  stroke="#1d3a6b" stroke-width="1.5" />
 
-          <div class="grid sm:grid-cols-2 gap-6 mb-8">
-            <div>
-              <h5 class="text-sm font-semibold text-slate-300 mb-2">Core Modules</h5>
-              <ul class="space-y-1.5 text-sm text-slate-400">
-                <li>• Fleet Registry — vessel specs, DWT capacity, deployment status</li>
-                <li>• Trips & Billing — voyage tracking and client invoicing</li>
-                <li>• Financials — operational cost and revenue tracking</li>
-                <li>• Manpower & Salary — crew payroll and stevedore wage computation</li>
-                <li>• Archives — historical logs and compliance records</li>
-              </ul>
+                <!-- monitor glow -->
+                <rect x="40" y="205" width="270" height="165" fill="#2f8cff" opacity=".28" filter="url(#blur)" />
+
+                <!-- monitor -->
+                <g transform="translate(30 215) skewY(-5.3)">
+                  <rect width="272" height="178" rx="8" fill="#0a1426" stroke="#2a5cae" stroke-width="2" />
+                  <rect x="8" y="8" width="256" height="162" rx="4" fill="url(#screenG)" />
+                  <rect x="8" y="8" width="44" height="162" fill="#0a1a36" />
+                  <g fill="#35507f" opacity=".9">
+                    <rect x="16" y="20" width="24" height="4" rx="2" />
+                    <rect x="16" y="32" width="18" height="4" rx="2" />
+                    <rect x="16" y="44" width="26" height="4" rx="2" />
+                    <rect x="16" y="56" width="16" height="4" rx="2" />
+                    <rect x="16" y="68" width="22" height="4" rx="2" />
+                  </g>
+                  <g transform="translate(60 0)" opacity=".9">
+                    <rect x="8" y="22" width="60" height="4" rx="2" fill="#4aa8ff" />
+                    <rect x="20" y="32" width="90" height="4" rx="2" fill="#7dd3fc" />
+                    <rect x="20" y="42" width="50" height="4" rx="2" fill="#a78bfa" />
+                    <rect x="76" y="42" width="40" height="4" rx="2" fill="#34d399" />
+                    <rect x="32" y="52" width="104" height="4" rx="2" fill="#475a7c" />
+                    <rect x="32" y="62" width="70" height="4" rx="2" fill="#fbbf24" />
+                    <rect x="108" y="62" width="44" height="4" rx="2" fill="#4aa8ff" />
+                    <rect x="32" y="72" width="92" height="4" rx="2" fill="#7dd3fc" />
+                    <rect x="20" y="82" width="30" height="4" rx="2" fill="#a78bfa" />
+                    <rect x="56" y="82" width="70" height="4" rx="2" fill="#475a7c" />
+                    <rect x="8" y="92" width="40" height="4" rx="2" fill="#4aa8ff" />
+                    <rect x="8" y="102" width="80" height="4" rx="2" fill="#34d399" />
+                    <rect x="20" y="112" width="100" height="4" rx="2" fill="#475a7c" />
+                    <rect x="20" y="122" width="64" height="4" rx="2" fill="#7dd3fc" />
+                    <rect x="90" y="122" width="50" height="4" rx="2" fill="#fbbf24" />
+                    <rect x="32" y="132" width="116" height="4" rx="2" fill="#4aa8ff" />
+                    <rect x="32" y="142" width="54" height="4" rx="2" fill="#a78bfa" />
+                    <rect x="8" y="152" width="48" height="4" rx="2" fill="#4aa8ff" />
+                  </g>
+                </g>
+                <!-- stand -->
+                <path d="M150 396 L190 392 L198 436 L142 436Z" fill="#0b1830" />
+                <rect x="112" y="432" width="108" height="8" rx="4" fill="#0e1f40" />
+
+                <!-- desk -->
+                <path d="M0 438 L520 416 L520 620 L0 620Z" fill="#050d20" />
+                <path d="M0 438 L520 416" stroke="url(#rim)" stroke-width="2" opacity=".7" />
+
+                <!-- keyboard -->
+                <path d="M66 482 L252 466 L282 496 L92 516Z" fill="#0b1a36" stroke="#2f8cff" stroke-opacity=".55" />
+                <g stroke="#4aa8ff" stroke-opacity=".4" stroke-width="5" stroke-dasharray="9 4" fill="none">
+                  <path d="M84 490 L260 475" />
+                  <path d="M92 498 L268 483" />
+                  <path d="M100 506 L252 493" />
+                </g>
+
+                <!-- person -->
+                <path d="M286 346 C256 384 240 432 242 474 L274 482 C280 442 298 404 334 380Z" fill="#0c1a38"
+                  stroke="#2f8cff" stroke-opacity=".35" />
+                <path
+                  d="M272 346 C292 300 332 286 376 290 C432 296 482 332 520 382 L520 620 L252 620 C250 520 256 400 272 346Z"
+                  fill="#0b1730" />
+                <path d="M272 346 C292 300 332 286 376 290 C432 296 482 332 520 382" fill="none" stroke="#4aa8ff"
+                  stroke-opacity=".55" stroke-width="1.5" />
+                <ellipse cx="388" cy="296" rx="56" ry="22" fill="#0f1f40" />
+                <rect x="352" y="258" width="40" height="42" fill="#0a1630" />
+                <ellipse cx="366" cy="226" rx="42" ry="50" fill="#0c1a36" />
+                <path d="M330 206 C328 230 326 246 336 262" fill="none" stroke="#4aa8ff" stroke-opacity=".6"
+                  stroke-width="2" />
+                <g fill="#070f22" stroke="#2a5cae" stroke-opacity=".5">
+                  <circle cx="344" cy="188" r="22" />
+                  <circle cx="368" cy="178" r="24" />
+                  <circle cx="392" cy="190" r="22" />
+                  <circle cx="398" cy="214" r="18" />
+                </g>
+                <!-- glasses -->
+                <rect x="318" y="220" width="20" height="18" rx="5" fill="none" stroke="#6bb8ff" stroke-width="2" />
+                <path d="M338 226 L360 222" stroke="#6bb8ff" stroke-width="2" />
+                <ellipse cx="238" cy="476" rx="26" ry="10" fill="#101f40" stroke="#2f8cff" stroke-opacity=".4"
+                  transform="rotate(-6 238 476)" />
+
+                <!-- hex badge -->
+                <g filter="url(#neon)">
+                  <polygon points="170,62 212,86 212,134 170,158 128,134 128,86" fill="rgba(47,140,255,.12)"
+                    stroke="#4aa8ff" stroke-width="3.5" stroke-linejoin="round" />
+                  <text x="170" y="120" text-anchor="middle" font-family="monospace" font-weight="700" font-size="30"
+                    fill="#cfe8ff">&lt;/&gt;</text>
+                </g>
+              </svg>
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('hero.jpg')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent"></div>
             </div>
-            <div>
-              <h5 class="text-sm font-semibold text-slate-300 mb-2">Business Domain Coverage</h5>
-              <ul class="space-y-1.5 text-sm text-slate-400">
-                <li>• Mother vessel arrival tracking & clearance documentation</li>
-                <li>• Inland river logistics and lighter vessel operations</li>
-                <li>• Port Authority compliance & bay crossing permits</li>
-                <li>• Multi-unit portal with role-based access</li>
-                <li>• Real-time operational dashboard for fleet managers</li>
-              </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="space-y-4 pb-4">
+
+      <!-- ========== WHAT I DO + SKILLS ========== -->
+      <section class="panel p-6 sm:p-9">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-0 lg:divide-x divide-blue-500/20">
+
+          <div class="lg:pr-10">
+            <h2 class="sec-title">What I <b>Do</b></h2>
+            <div class="grid sm:grid-cols-2 gap-x-6 gap-y-8">
+              <div class="flex gap-4">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-white text-[13px] mb-1">Backend Development</h3>
+                  <p class="text-[11.5px] text-slate-300/80 leading-relaxed">Building secure, scalable backend systems
+                    with NestJS, Node.js &amp; microservices.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-white text-[13px] mb-1">Full-Stack Apps</h3>
+                  <p class="text-[11.5px] text-slate-300/80 leading-relaxed">End-to-end applications — from APIs to
+                    clean, functional frontends when needed.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path
+                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 12c0 2.21 3.582 4 8 4s8-1.79 8-4" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-white text-[13px] mb-1">Database Design</h3>
+                  <p class="text-[11.5px] text-slate-300/80 leading-relaxed">PostgreSQL, MySQL, MongoDB — schema design,
+                    optimization &amp; high-volume data.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-white text-[13px] mb-1">System Architecture</h3>
+                  <p class="text-[11.5px] text-slate-300/80 leading-relaxed">Microservices, CQRS, Saga, event-driven
+                    design for production-grade systems.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-white text-[13px] mb-1">Performance</h3>
+                  <p class="text-[11.5px] text-slate-300/80 leading-relaxed">Query optimization, caching, async
+                    processing — measurable latency &amp; throughput wins.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-white text-[13px] mb-1">AI-Assisted Workflow</h3>
+                  <p class="text-[11.5px] text-slate-300/80 leading-relaxed">Regularly use AI tools to ship faster while
+                    owning final quality &amp; architecture.</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="flex flex-wrap gap-2 mb-8">
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">React</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">TypeScript</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">Dashboard
-              UI</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">Role-based
-              Access</span>
-            <span
-              class="px-2.5 py-1 text-xs rounded-md bg-slate-800 border border-slate-700 text-slate-300 font-mono">Netlify</span>
+          <div class="lg:pl-10">
+            <h2 class="sec-title">My <b>Skills</b></h2>
+            <div class="space-y-[18px]">
+              <div>
+                <div class="text-[13px] text-white mb-1.5">NestJS</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:90%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">90%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">TypeScript / Node.js</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:90%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">90%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">React</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:75%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">75%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">PostgreSQL / MySQL</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:85%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">85%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">MongoDB</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:80%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">80%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">RabbitMQ / Redis</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:82%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">82%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">System Design / Microservices</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:85%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">85%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">Docker / AWS</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:78%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">78%</span>
+                </div>
+              </div>
+              <div>
+                <div class="text-[13px] text-white mb-1.5">C# / Python / PHP (side projects)</div>
+                <div class="flex items-center gap-4">
+                  <div class="bar-track">
+                    <div class="bar-fill" style="width:75%"></div>
+                  </div><span class="text-[12px] text-slate-300 w-9 text-right">75%</span>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ========== TECHNOLOGIES + FACTS ========== -->
+      <section class="panel p-6 sm:p-9">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-0 lg:divide-x divide-blue-500/20">
+
+          <div class="lg:pr-10">
+            <h2 class="sec-title">Technologies I <b>Use</b></h2>
+            <div class="flex flex-wrap justify-center gap-y-7">
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-nestjs-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">NestJS</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-nodejs-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">Node.js</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-typescript-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">TypeScript</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-react-original colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">React</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-postgresql-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">PostgreSQL</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-mongodb-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">MongoDB</span></div>
+
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-mysql-original colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">MySQL</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-redis-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">Redis</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-rabbitmq-original colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">RabbitMQ</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-docker-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">Docker</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-amazonwebservices-plain-wordmark tech-icon" style="color:#ff9900"></i><span
+                  class="text-[11px] text-slate-300">AWS</span></div>
+
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-git-plain colored tech-icon"></i><span class="text-[11px] text-slate-300">Git</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-github-original tech-icon text-white"></i><span
+                  class="text-[11px] text-slate-300">GitHub</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-jest-plain colored tech-icon"></i><span class="text-[11px] text-slate-300">Jest</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-csharp-plain colored tech-icon"></i><span class="text-[11px] text-slate-300">C#</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-python-plain colored tech-icon"></i><span
+                  class="text-[11px] text-slate-300">Python</span></div>
+              <div class="flex flex-col items-center gap-2 text-center w-1/5"><i
+                  class="devicon-php-plain colored tech-icon"></i><span class="text-[11px] text-slate-300">PHP</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:pl-10">
+            <h2 class="sec-title">Some Facts <b>About Me</b></h2>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="fact flex items-center gap-4 px-4 py-5">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <div class="font-display font-semibold text-[26px] text-white leading-none">3.5+</div>
+                  <div class="text-[10px] text-slate-300 uppercase tracking-wider leading-tight mt-1.5">Years
+                    of<br>Experience</div>
+                </div>
+              </div>
+              <div class="fact flex items-center gap-4 px-4 py-5">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path
+                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                </svg>
+                <div>
+                  <div class="font-display font-semibold text-[26px] text-white leading-none">500K+</div>
+                  <div class="text-[10px] text-slate-300 uppercase tracking-wider leading-tight mt-1.5">API Req /
+                    Day<br>Handled</div>
+                </div>
+              </div>
+              <div class="fact flex items-center gap-4 px-4 py-5">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path
+                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                </svg>
+                <div>
+                  <div class="font-display font-semibold text-[26px] text-white leading-none">5M+</div>
+                  <div class="text-[10px] text-slate-300 uppercase tracking-wider leading-tight mt-1.5">
+                    Records<br>Migrated</div>
+                </div>
+              </div>
+              <div class="fact flex items-center gap-4 px-4 py-5">
+                <svg class="ico" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <div>
+                  <div class="font-display font-semibold text-[26px] text-white leading-none">60%</div>
+                  <div class="text-[10px] text-slate-300 uppercase tracking-wider leading-tight mt-1.5">
+                    Latency<br>Reduced</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PROJECTS ========== -->
+      <section class="panel p-6 sm:p-9">
+        <h2 class="sec-title">Featured <b>Projects</b></h2>
+        <div class="grid md:grid-cols-3 gap-5">
+          <a href="https://github.com/NC-Rifat-Rahman/Ruralgig" target="_blank" rel="noopener"
+            class="card-glow group rounded-2xl border border-blue-500/20 bg-[#08132a]/70 overflow-hidden flex flex-col">
+            <div class="h-32 bg-gradient-to-br from-blue-600/25 to-[#050c1e] grid place-items-center relative">
+              <span
+                class="absolute top-3 left-3 px-2 py-0.5 text-[10px] font-bold rounded bg-violet-500/90 text-white">SIDE
+                PROJECT</span>
+              <span
+                class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold rounded-full border border-amber-400/40 bg-amber-400/10 text-amber-300"><span
+                  class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>ONGOING</span>
+              <svg class="w-12 h-12 opacity-80 group-hover:opacity-100 transition" viewBox="0 0 24 24" fill="none"
+                stroke="#3b9bff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-white mb-1.5">RuralGig</h3>
+              <p class="text-[12px] text-slate-300/80 leading-relaxed mb-4 flex-1">
+                AI-powered micro-freelance platform. NestJS microservices, CQRS, Saga, RabbitMQ, skill matching &amp;
+                bKash payouts.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">NestJS</span>
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">TypeScript</span>
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">RabbitMQ</span>
+              </div>
+            </div>
+          </a>
 
           <a href="https://wondrous-bombolone-d5f4ab.netlify.app/portal" target="_blank" rel="noopener"
-            class="inline-flex items-center gap-2 text-brand-400 hover:text-brand-300 font-medium transition">
-            View Live Portal
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+            class="card-glow group rounded-2xl border border-blue-500/20 bg-[#08132a]/70 overflow-hidden flex flex-col">
+            <div class="h-32 bg-gradient-to-br from-cyan-600/20 to-[#050c1e] grid place-items-center relative">
+              <span
+                class="absolute top-3 left-3 px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-500/90 text-white">CLIENT
+                PROJECT</span>
+              <span
+                class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold rounded-full border border-amber-400/40 bg-amber-400/10 text-amber-300"><span
+                  class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>ONGOING</span>
+              <svg class="w-12 h-12 opacity-80 group-hover:opacity-100 transition" viewBox="0 0 24 24" fill="none"
+                stroke="#3b9bff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M4 5a1 1 0 011-1h4a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v2a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10-3a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1v-7z" />
+              </svg>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-white mb-1.5">AeroMarine</h3>
+              <p class="text-[12px] text-slate-300/80 leading-relaxed mb-4 flex-1">
+                Port logistics &amp; shipping ops platform. Fleet registry, trips &amp; billing, manpower &amp; salary
+                modules.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">React</span>
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">TypeScript</span>
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">Dashboard</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://github.com/NC-Rifat-Rahman/Learning-Management-System" target="_blank" rel="noopener"
+            class="card-glow group rounded-2xl border border-blue-500/20 bg-[#08132a]/70 overflow-hidden flex flex-col">
+            <div class="h-32 bg-gradient-to-br from-indigo-600/20 to-[#050c1e] grid place-items-center">
+              <svg class="w-12 h-12 opacity-80 group-hover:opacity-100 transition" viewBox="0 0 24 24" fill="none"
+                stroke="#3b9bff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3 class="font-display font-bold text-white mb-1.5">Learning Management System</h3>
+              <p class="text-[12px] text-slate-300/80 leading-relaxed mb-4 flex-1">
+                Classroom platform with Django. Auth, class management, notes, PDF handling &amp; REST APIs.
+              </p>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">Django</span>
+                <span
+                  class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">Python</span>
+                <span class="px-2.5 py-0.5 text-[10px] rounded-full border border-blue-500/30 text-blue-300">REST</span>
+              </div>
+            </div>
           </a>
         </div>
-      </article>
+      </section>
 
-
-      <!-- Other projects grid -->
-      <div class="grid sm:grid-cols-2 gap-6">
-        <!-- LMS -->
-        <article class="card-hover rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-          <h4 class="text-lg font-semibold text-white mb-2">Learning Management System</h4>
-          <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-            Classroom platform built with Django. Includes user authentication, class management,
-            notes, and PDF handling with REST API endpoints.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2 py-0.5 text-xs rounded bg-slate-800 text-slate-400 font-mono">Django</span>
-            <span class="px-2 py-0.5 text-xs rounded bg-slate-800 text-slate-400 font-mono">Python</span>
-            <span class="px-2 py-0.5 text-xs rounded bg-slate-800 text-slate-400 font-mono">REST</span>
+      <!-- ========== EXPERIENCE ========== -->
+      <section class="panel p-6 sm:p-9">
+        <h2 class="sec-title">My <b>Experience</b></h2>
+        <div class="max-w-3xl space-y-8">
+          <div class="relative pl-8 border-l-2 border-accent/50">
+            <div
+              class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-accent border-4 border-[#07122a] shadow-[0_0_12px_rgba(47,140,255,.7)]">
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+              <h3 class="font-display font-bold text-white">Executive Software Engineer</h3>
+              <span class="text-xs text-slate-400">Nov 2025 – Present</span>
+            </div>
+            <p class="text-accent2 text-sm font-medium mb-2">Four H · Askarabad, Bangladesh</p>
+            <ul class="text-[13px] text-slate-300/85 space-y-1 leading-relaxed">
+              <li>• ERP backend modules (NestJS, TypeORM, MySQL) — global search, dynamic sorting</li>
+              <li>• Migrated 5M+ Excel records; bulk import/export with validation &amp; CM calculation</li>
+              <li>• Jest tests + technical documentation</li>
+            </ul>
           </div>
-          <a href="https://github.com/NC-Rifat-Rahman/Learning-Management-System" target="_blank" rel="noopener"
-            class="text-sm text-brand-400 hover:text-brand-300 font-medium">GitHub →</a>
-        </article>
 
-        <!-- Tournament Tracker -->
-
-        <article class="card-hover rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-          <h4 class="text-lg font-semibold text-white mb-2">Tournament Tracker</h4>
-          <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-            Desktop application for managing tournaments and competitions,
-            built with C#. Focus on structured data and clean UI flow.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2 py-0.5 text-xs rounded bg-slate-800 text-slate-400 font-mono">C#</span>
-            <span class="px-2 py-0.5 text-xs rounded bg-slate-800 text-slate-400 font-mono">.NET</span>
+          <div class="relative pl-8 border-l-2 border-white/10">
+            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#07122a]"></div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+              <h3 class="font-display font-bold text-white">Software Engineer</h3>
+              <span class="text-xs text-slate-400">Nov 2024 – Oct 2025</span>
+            </div>
+            <p class="text-accent2 text-sm font-medium mb-2">BizReflex · Baridhara DOHS, Bangladesh</p>
+            <ul class="text-[13px] text-slate-300/85 space-y-1 leading-relaxed">
+              <li>• Auth system (NestJS, PostgreSQL, Angular)</li>
+              <li>• Optimized Order module queries — 25% faster on high-volume transactions</li>
+            </ul>
           </div>
-          <a href="https://github.com/NC-Rifat-Rahman/Tournament-Tracker" target="_blank" rel="noopener"
-            class="text-sm text-brand-400 hover:text-brand-300 font-medium">GitHub →</a>
-        </article>
 
-        <!-- Easy SQL -->
-        <article class="card-hover rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-          <h4 class="text-lg font-semibold text-white mb-2">Easy-SQL</h4>
-          <p class="text-slate-400 text-sm mb-4 leading-relaxed">
-            SQL query generator application that helps users construct queries
-            more easily through a structured interface.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-5">
-            <span class="px-2 py-0.5 text-xs rounded bg-slate-800 text-slate-400 font-mono">JavaScript</span>
-            <span class="px-2 py-0.5 text-xs rounded bg-slate-800 text-slate-400 font-mono">SQL</span>
+          <div class="relative pl-8 border-l-2 border-white/10">
+            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#07122a]"></div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+              <h3 class="font-display font-bold text-white">Software Engineer</h3>
+              <span class="text-xs text-slate-400">Aug 2023 – Oct 2024</span>
+            </div>
+            <p class="text-accent2 text-sm font-medium mb-2">ShareTrip · Bashundhara, Bangladesh</p>
+            <ul class="text-[13px] text-slate-300/85 space-y-1 leading-relaxed">
+              <li>• Hotel microservices handling 500K+ API requests/day</li>
+              <li>• Data Aggregator → +80% international revenue, +30% throughput</li>
+              <li>• ST-ROOMS backend → +200% domestic sales, latency 6s → 2.5s (−60%)</li>
+              <li>• AWS, Grafana, Jest, Scrum</li>
+            </ul>
           </div>
-          <a href="https://github.com/NC-Rifat-Rahman/Easy-SQL" target="_blank" rel="noopener"
-            class="text-sm text-brand-400 hover:text-brand-300 font-medium">GitHub →</a>
-        </article>
+
+          <div class="relative pl-8 border-l-2 border-white/10">
+            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#07122a]"></div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+              <h3 class="font-display font-bold text-white">Backend Developer Intern</h3>
+              <span class="text-xs text-slate-400">Jun 2022 – Sep 2022</span>
+            </div>
+            <p class="text-accent2 text-sm font-medium mb-2">ProInfoSysBD · Gulshan, Bangladesh</p>
+            <ul class="text-[13px] text-slate-300/85 space-y-1 leading-relaxed">
+              <li>• Java, Spring Boot, MySQL + JWT security for internal HRM app</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== LET'S CONNECT ========== -->
+      <section id="contact" class="panel p-6 sm:p-9">
+        <div class="grid lg:grid-cols-[1fr_auto_1.15fr] gap-10 lg:gap-12 items-center">
+
+          <div>
+            <h2 class="sec-title">Let's <b>Connect</b></h2>
+            <div class="space-y-4 text-[14px]">
+              <a href="https://www.linkedin.com/in/nc-rifat-rahman/" target="_blank" rel="noopener"
+                class="flex items-center gap-4 text-slate-200 hover:text-accent2 transition">
+                <svg class="w-[18px] h-[18px] text-accent2 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                linkedin.com/in/nc-rifat-rahman
+              </a>
+              <a href="https://github.com/NC-Rifat-Rahman" target="_blank" rel="noopener"
+                class="flex items-center gap-4 text-slate-200 hover:text-accent2 transition">
+                <svg class="w-[18px] h-[18px] text-accent2 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clip-rule="evenodd" />
+                </svg>
+                github.com/NC-Rifat-Rahman
+              </a>
+              <div class="flex items-center gap-4 text-slate-200">
+                <svg class="w-[18px] h-[18px] text-accent2 shrink-0" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Bangladesh · Open to remote
+              </div>
+            </div>
+          </div>
+
+          <!-- Center logo -->
+          <div class="relative w-40 h-40 mx-auto grid place-items-center">
+            <svg class="absolute inset-0" viewBox="0 0 160 160" aria-hidden="true">
+              <defs>
+                <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#4aa8ff" />
+                  <stop offset="1" stop-color="#1d6bff" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="80" r="76" fill="none" stroke="rgba(59,130,246,.25)" stroke-width="1.5" />
+              <circle cx="80" cy="80" r="76" fill="none" stroke="url(#ringG)" stroke-width="3.5" stroke-linecap="round"
+                stroke-dasharray="170 310" transform="rotate(-120 80 80)" />
+            </svg>
+            <div
+              class="w-[7.2rem] h-[7.2rem] rounded-full border border-blue-400/40 bg-[radial-gradient(circle_at_50%_35%,#0f2a57,#050d20_70%)] shadow-[0_0_44px_rgba(47,140,255,.45)] grid place-items-center">
+              <svg viewBox="0 0 64 48" class="w-16 h-12">
+                <use href="#mono" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Quote -->
+          <div>
+            <div class="flex gap-3">
+              <span class="quote-mark">“</span>
+              <p class="font-display font-medium text-[18px] sm:text-[20px] leading-snug text-white pt-1">
+                Code is not just what I do — it's how I <span class="hl">bring ideas to life.</span> Backend systems
+                that scale, architectures that last.
+                <span class="quote-mark align-bottom ml-1">”</span>
+              </p>
+            </div>
+            <div class="mt-3 pl-12">
+              <div class="font-script text-accent2 text-[2.6rem] leading-none">Rifat Rahman</div>
+              <svg class="w-44 h-3 mt-1" viewBox="0 0 176 12" fill="none" stroke="#4aa8ff" stroke-width="1.5"
+                stroke-linecap="round">
+                <path d="M2 8 C40 2, 100 2, 174 7" />
+              </svg>
+              <p class="text-[11px] text-slate-400 mt-2">Full-Stack Engineer · Strong in Backend</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== FEATURE BAR ========== -->
+      <section class="rounded-2xl border border-blue-500/20 bg-gradient-to-b from-[#0b1d42] to-[#07142e] py-5 px-4">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-5 lg:divide-x divide-blue-500/20">
+          <div
+            class="flex items-center justify-center gap-3 font-display font-medium text-[11px] tracking-[.1em] text-slate-100">
+            <svg class="w-6 h-6 text-accent2" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            FAST DELIVERY
+          </div>
+          <div
+            class="flex items-center justify-center gap-3 font-display font-medium text-[11px] tracking-[.1em] text-slate-100">
+            <svg class="w-6 h-6 text-accent2" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            CLEAN &amp; SECURE CODE
+          </div>
+          <div
+            class="flex items-center justify-center gap-3 font-display font-medium text-[11px] tracking-[.1em] text-slate-100">
+            <svg class="w-6 h-6 text-accent2" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            PRODUCTION-READY
+          </div>
+          <div
+            class="flex items-center justify-center gap-3 font-display font-medium text-[11px] tracking-[.1em] text-slate-100">
+            <svg class="w-6 h-6 text-accent2" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path
+                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            AI-ASSISTED WORKFLOW
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <p>© 2026 Rifat Rahman. All rights reserved.</p>
+        <p class="text-slate-600">Full-Stack Engineer · Strong in Backend</p>
       </div>
-
-      <div class="mt-10 text-center">
-        <a href="https://github.com/NC-Rifat-Rahman?tab=repositories" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition font-medium">
-          See all repositories on GitHub
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact / CTA -->
-  <section id="contact" class="py-24 border-t border-slate-800/60">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-3">Contact</h2>
-      <h3 class="text-3xl sm:text-4xl font-bold text-white mb-6">Let's build something solid</h3>
-      <p class="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-        I'm open to backend engineering roles, interesting system design problems,
-        and collaborations. Feel free to reach out.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://www.linkedin.com/in/nc-rifat-rahman/" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition shadow-lg shadow-brand-600/20">
-          Connect on LinkedIn
-        </a>
-        <a href="https://github.com/NC-Rifat-Rahman" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold border border-slate-700 transition">
-          GitHub Profile
-        </a>
-      </div>
-
-      <p class="mt-12 text-sm text-slate-500">
-        Based in Bangladesh · Open to remote opportunities
-      </p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/60 py-8">
-    <div
-      class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-      <p>© 2026 Rifat Rahman. Built with care.</p>
-      <div class="flex items-center gap-6">
-        <a href="https://github.com/NC-Rifat-Rahman" target="_blank" rel="noopener"
-          class="hover:text-slate-300 transition">GitHub</a>
-        <a href="https://www.linkedin.com/in/nc-rifat-rahman/" target="_blank" rel="noopener"
-          class="hover:text-slate-300 transition">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
 </body>
 
